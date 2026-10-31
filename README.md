@@ -2,6 +2,47 @@
 
 On-device image and PDF compression. Runs entirely in the browser. No server, no upload.
 
+## Web Worker
+
+Compression is CPU-intensive. The library API works in both the main thread and a Web Worker. For large images or PDFs, run it in a Worker to keep your UI responsive. The library does not create a Worker automatically; your application owns Worker lifecycle and progress reporting.
+
+Example worker:
+
+```js
+import { compressImage, compressPdf } from '@wahyugnc/compressor'
+
+self.onmessage = async ({ data }) => {
+  try {
+    const input = new Uint8Array(data.bytes)
+    const result = data.kind === 'pdf'
+      ? await compressPdf(input, data.jpegQuality ?? 60)
+      : await compressImage(input, data.options ?? {})
+    self.postMessage({ type: 'done', result }, [result.bytes.buffer])
+  } catch (error) {
+    self.postMessage({
+      type: 'error',
+      message: error instanceof Error ? error.message : String(error),
+    })
+  }
+}
+```
+
+Main thread:
+
+```js
+const worker = new Worker(new URL('./compress.worker.js', import.meta.url), {
+  type: 'module',
+})
+
+worker.postMessage({
+  kind: 'pdf',
+  bytes: await file.arrayBuffer(),
+  jpegQuality: 60,
+}, [bytes])
+```
+
+The library reports one final result. If you need a 0–100% progress bar, report application-level stages: file read, worker started, compression finished, and download ready.
+
 ## Install
 
 ```bash
