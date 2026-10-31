@@ -31,7 +31,7 @@
   "author": "Wahyu",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wahyugnc/rust-compressor.git"
+    "url": "git+https://github.com/wahyugnc/compressor.git"
   },
   "sideEffects": false
 }
