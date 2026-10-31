@@ -165,13 +165,15 @@ if (Symbol.dispose) WatermarkResult.prototype[Symbol.dispose] = WatermarkResult.
  * @param {number} quality
  * @param {string} format
  * @param {number} max_bytes
+ * @param {number} skip_below_bytes
  * @returns {ImageResult}
  */
-export function compress(input, width, height, quality, format, max_bytes) {
+export function compress(input, width, height, quality, format, max_bytes, skip_below_bytes) {
     const val3 = +width;
     const val4 = +height;
     const val5 = +quality;
     const val6 = +max_bytes;
+    const val7 = +skip_below_bytes;
     let ptr0, len0, ptr1, len1;
     try {
         ptr0 = passArray8ToWasm0(input, wasm.__wbindgen_malloc);
@@ -183,7 +185,7 @@ export function compress(input, width, height, quality, format, max_bytes) {
         if (ptr0) { wasm.__wbindgen_free(ptr0, len0 * 1, 1); }
         throw e;
     }
-    const ret = wasm.compress(ptr0, len0, val3, val4, val5, ptr1, len1, val6);
+    const ret = wasm.compress(ptr0, len0, val3, val4, val5, ptr1, len1, val6, val7);
     if (ret[2]) {
         throw takeFromExternrefTable0(ret[1]);
     }

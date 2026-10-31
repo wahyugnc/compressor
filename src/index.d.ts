@@ -4,6 +4,8 @@ export interface ImageCompressOptions {
   quality?: number
   format?: 'jpeg' | 'png' | 'webp'
   maxBytes?: number
+  /** Return same-format images at or below this byte size unchanged. Set 0 to disable. Default: 100000. */
+  skipBelowBytes?: number
 }
 
 export interface ImageCompressResult {

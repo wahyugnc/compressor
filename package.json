@@ -1,6 +1,6 @@
 {
   "name": "@wahyugnc/compressor",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "On-device image and PDF compression. Runs entirely in the browser. No server, no upload.",
   "type": "module",
   "main": "./src/index.js",

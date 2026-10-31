@@ -31,7 +31,7 @@ export class WatermarkResult {
     readonly width: number;
 }
 
-export function compress(input: Uint8Array | number[], width: number, height: number, quality: number, format: string, max_bytes: number): ImageResult;
+export function compress(input: Uint8Array | number[], width: number, height: number, quality: number, format: string, max_bytes: number, skip_below_bytes: number): ImageResult;
 
 export function compress_pdf(input: Uint8Array | number[], jpeg_quality: number): PdfResult;
 
@@ -44,7 +44,7 @@ export interface InitOutput {
     readonly __wbg_imageresult_free: (a: number, b: number) => void;
     readonly __wbg_pdfresult_free: (a: number, b: number) => void;
     readonly __wbg_watermarkresult_free: (a: number, b: number) => void;
-    readonly compress: (a: number, b: number, c: number, d: number, e: number, f: number, g: number, h: number) => [number, number, number];
+    readonly compress: (a: number, b: number, c: number, d: number, e: number, f: number, g: number, h: number, i: number) => [number, number, number];
     readonly compress_pdf: (a: number, b: number, c: number) => [number, number, number];
     readonly imageresult_bytes: (a: number) => [number, number];
     readonly imageresult_height: (a: number) => number;

@@ -105,6 +105,7 @@ await init()
 | `quality` | number | 80 | JPEG quality 1–100 |
 | `format` | string | 'jpeg' | Output: 'jpeg', 'png', 'webp' |
 | `maxBytes` | number | 0 | Target size in bytes (0 = no limit) |
+| `skipBelowBytes` | number | 100000 | Return same-format image unchanged when input size is at or below this threshold; 0 disables. Only skips when dimensions already fit requested bounds. |
 
 ### `compressPdf(input: Uint8Array, jpegQuality?): Promise<PdfCompressResult>`
 
