@@ -116,6 +116,13 @@ Limits: input PDF size up to 64 MiB. Input image size up to 64 MiB and up to 40 
 |-----------|------|---------|-------------|
 | `jpegQuality` | number | 60 | JPEG quality 1–100 |
 
+#### PDF compression constraints
+
+- Only embedded images are re-encoded. Vector graphics, fonts, and text are untouched, so PDFs with little image content show small or no size reduction.
+- An image is only replaced if the re-encoded JPEG is smaller than the original stream. If the source image is already well-compressed, the output can be identical to the input (0% saved) — this is expected, not a bug.
+- Pages with images, masks, or transparency not listed above are left byte-for-byte unchanged to avoid any risk of visual corruption.
+- Lower `jpegQuality` values give smaller files but more visible compression artifacts. If a PDF shows little or no savings at the default quality (60), try a lower value (for example 30–40) and compare output size/quality.
+
 ## License
 
 MIT
