@@ -5,7 +5,7 @@ On-device image and PDF compression. Runs entirely in the browser. No server, no
 ## Install
 
 ```bash
-npm install compressor
+npm install @wahyugnc/compressor
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ npm install compressor
 ### Compress image
 
 ```js
-import { compressImage } from 'compressor'
+import { compressImage } from '@wahyugnc/compressor'
 
 const input = new Uint8Array(await file.arrayBuffer())
 const result = await compressImage(input, {
@@ -33,7 +33,7 @@ const result = await compressImage(input, {
 ### Compress PDF
 
 ```js
-import { compressPdf } from 'compressor'
+import { compressPdf } from '@wahyugnc/compressor'
 
 const input = new Uint8Array(await file.arrayBuffer())
 const result = await compressPdf(input, 60) // jpeg quality 1–100
@@ -49,7 +49,7 @@ const result = await compressPdf(input, 60) // jpeg quality 1–100
 The library auto-initializes on first call. To pre-load:
 
 ```js
-import { init } from 'compressor'
+import { init } from '@wahyugnc/compressor'
 await init()
 ```
 
