@@ -69,6 +69,8 @@ await init()
 
 Re-encodes safe embedded images (JPEG, 8-bit Gray/RGB with Flate/LZW/RunLength/no filter, ICCBased N=1|3, Indexed DeviceRGB, sub-byte 1/2/4-bit) as JPEG. Already-efficient or ambiguous formats (JPX, CCITT, JBIG2, CMYK, masks, custom Decode) stay byte-preserved.
 
+Limits: input PDF size up to 64 MiB. Input image size up to 64 MiB and up to 40 megapixels. Inputs over these limits return an error.
+
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `jpegQuality` | number | 60 | JPEG quality 1–100 |
