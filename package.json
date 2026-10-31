@@ -1,0 +1,37 @@
+{
+  "name": "compressor",
+  "version": "0.1.0",
+  "description": "On-device image and PDF compression via Rust compiled to WebAssembly. No server, no upload.",
+  "type": "module",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "keywords": [
+    "compress",
+    "image",
+    "pdf",
+    "jpeg",
+    "png",
+    "webp",
+    "wasm",
+    "browser",
+    "client-side",
+    "offline"
+  ],
+  "license": "MIT",
+  "author": "Wahyu",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wahyugnc/rust-compressor.git"
+  },
+  "sideEffects": false
+}
