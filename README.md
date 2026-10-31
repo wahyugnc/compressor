@@ -1,6 +1,6 @@
 # compressor
 
-On-device image and PDF compression via Rust compiled to WebAssembly. No server, no upload.
+On-device image and PDF compression. Runs entirely in the browser. No server, no upload.
 
 ## Install
 

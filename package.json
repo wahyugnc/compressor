@@ -1,7 +1,7 @@
 {
   "name": "compressor",
   "version": "0.1.0",
-  "description": "On-device image and PDF compression via Rust compiled to WebAssembly. No server, no upload.",
+  "description": "On-device image and PDF compression. Runs entirely in the browser. No server, no upload.",
   "type": "module",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
@@ -22,7 +22,6 @@
     "jpeg",
     "png",
     "webp",
-    "wasm",
     "browser",
     "client-side",
     "offline"
